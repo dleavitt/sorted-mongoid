@@ -1,6 +1,6 @@
 # Sorted::Mongoid
 
-TODO: Write a gem description
+Adds Mongoid support to [sorted](https://github.com/mynameisrufus/sorted). Allows you to sort large (Mongoid) datasets over many pages, without losing state.
 
 ## Installation
 
@@ -12,13 +12,15 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install sorted-mongoid
-
 ## Usage
 
-TODO: Write usage instructions here
+Just like sorted, hopefully! Include it in your Gemfile and all your Mongoid models should have the `sorted` method, eg:
+
+```ruby
+@users = User.sorted(params[:sort], "email ASC").page(params[:page])
+```
+
+Use SQL ordering keywords, even though we're not in SQLLand anymore.
 
 ## Contributing
 
